@@ -1,0 +1,1 @@
+Assignment 2's code is in the assignment folder which resides in the SWQA folder in the GitHub repository. This is because I will use the same repo for assignment 3 for ease of setup. “assignment2.py” is the BMI Calculator and “test_assignment2.py” is the pytest file.
