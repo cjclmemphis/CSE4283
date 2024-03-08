@@ -1,3 +1,6 @@
+# Connor Carr-Laughlin
+# cjc935
+
 def bmi(weight, height):
     try:
         weight = int(weight)

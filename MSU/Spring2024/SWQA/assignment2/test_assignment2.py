@@ -1,5 +1,5 @@
 import pytest
-from assignment2.assignment2 import bmi, classifyBMI
+from assignment2 import bmi, classifyBMI
 
 
 def test_bmi_invalid_input():
@@ -12,17 +12,18 @@ def test_bmi_invalid_input():
 
 def test_bmi():
     assert bmi(150, 60) == 29.3
+    assert bmi(150, 72) == 20.3
+    assert bmi(200, 60) == 39.1
+    assert bmi(200, 72) == 27.1
+    assert bmi(250, 60) == 48.8
+    
 
     
 def test_classifyBMI_EPC():
     assert classifyBMI(18.4) == 'Underweight'
     assert classifyBMI(18.5) == 'Normal weight'
-    assert classifyBMI(18.6) == 'Normal weight'
-    assert classifyBMI(24.8) == 'Normal weight'
     assert classifyBMI(24.9) == 'Normal weight'
     assert classifyBMI(25.0) == 'Overweight'
-    assert classifyBMI(25.1) == 'Overweight'
-    assert classifyBMI(29.8) == 'Overweight'
     assert classifyBMI(29.9) == 'Overweight'
     assert classifyBMI(30.0) == 'Obese'
     assert classifyBMI(30.1) == 'Obese'
