@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './BMICalc.css';
 
 function calculateBMI(weightLb, heightFt, heightIn) {
     if (weightLb && heightFt) {
@@ -32,8 +32,8 @@ function BMICalculator() {
 
     const getBMI = () => {
         const bmi = calculateBMI(weightLb, heightFt, heightIn);
-        setBMI(bmi.toFixed(1));
-        setBMIClass(classifyBMI(bmi));
+        setBMI(bmi);
+        setBMIClass(classifyBMI(parseInt(bmi)));
     }
 
 
@@ -43,8 +43,9 @@ function BMICalculator() {
     };
 
     return (
-        <div>
+        <div className='Calculator'>
             <h1>BMI Calculator</h1>
+            <h4>Inputs must be numbers</h4>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>
@@ -58,21 +59,22 @@ function BMICalculator() {
                 </div>
                 <div>
                     <label>
-                        Height (ft):
+                        Height (ft, inches):
                         <input
                             type="number"
                             value={heightFt}
                             onChange={(e) => setHeightFt(e.target.value)}
                         />
-                    </label>
-                    <label>
-                        (inches):
                         <input
                             type="number"
                             value={heightIn}
                             onChange={(e) => setHeightIn(e.target.value)}
                         />
                     </label>
+
+                </div>
+                <div>
+
                 </div>
                 <button type="submit">Calculate</button>
             </form>
@@ -88,4 +90,6 @@ function BMICalculator() {
 
 export default BMICalculator;
 
-module.exports = { calculateBMI, classifyBMI };
+// Export the functions so they can be tested
+
+export { calculateBMI, classifyBMI };
